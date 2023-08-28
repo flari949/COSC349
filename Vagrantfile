@@ -51,6 +51,7 @@ Vagrant.configure("2") do |config|
   # If you use this you may want to enable additional shared subfolders as
   # shown above.
   # config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.synced_folder ".", "/vagrant", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -73,5 +74,11 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
     apt-get install -y apache2
+
+    # Use local webserver config
+    cp /vagrant/test-website.conf /etc/apache2/sites-available/
+    a2ensite test-website
+    a2dissite 000-default
+    service apache2 reload
   SHELL
 end

@@ -19,6 +19,14 @@ Vagrant.configure("2") do |config|
   # `vagrant box outdated`. This is not recommended.
   # config.vm.box_check_update = false
 
+
+  config.vm.define "test" do |test|
+    test.vm.provision "shell", inline: <<-SHELL
+      echo testing
+    SHELL
+  end
+
+
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
@@ -28,7 +36,7 @@ Vagrant.configure("2") do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine and only allow access
   # via 127.0.0.1 to disable public access
-  config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1" --------
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -51,7 +59,7 @@ Vagrant.configure("2") do |config|
   # If you use this you may want to enable additional shared subfolders as
   # shown above.
   # config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder ".", "/vagrant", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
+  # config.vm.synced_folder ".", "/vagrant", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"] --------
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -71,14 +79,14 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", inline: <<-SHELL
-    apt-get update
-    apt-get install -y apache2
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   apt-get update
+  #   apt-get install -y apache2
 
-    # Use local webserver config
-    cp /vagrant/test-website.conf /etc/apache2/sites-available/
-    a2ensite test-website
-    a2dissite 000-default
-    service apache2 reload
-  SHELL
+  #   # Use local webserver config
+  #   cp /vagrant/test-website.conf /etc/apache2/sites-available/  ----------
+  #   a2ensite test-website
+  #   a2dissite 000-default
+  #   service apache2 reload
+  # SHELL
 end

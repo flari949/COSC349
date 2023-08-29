@@ -44,7 +44,7 @@ Vagrant.configure("2") do |config|
     dbadmin.vm.provision "shell", path: "dbadmin-vm.sh"
 
     admin_password = "admin"
-    dbadmin.ssh.extra_args = ["-t", "mysql -h 192.168.56.12 -u admin -p#{admin_password}"]
+    dbadmin.ssh.extra_args = ["-t", "mysql -h 192.168.56.12 -u admin -p#{admin_password} 2>/dev/null"]
 
   end
 

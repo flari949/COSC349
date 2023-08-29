@@ -43,10 +43,11 @@ Vagrant.configure("2") do |config|
 
     dbadmin.vm.provision "shell", inline: <<-SHELL
 
-      echo "dbadmin vm running!"
-      echo "Test connect to dbserver with dbadmin "
+      sudo apt-get update
+      sudo apt-get -y install mysql-client
 
     SHELL
+
   end
 
 end

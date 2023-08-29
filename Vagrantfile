@@ -41,12 +41,10 @@ Vagrant.configure("2") do |config|
     # Line required for functionality in CS labs
     dbadmin.vm.synced_folder ".", "/vagrant", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
 
-    dbadmin.vm.provision "shell", inline: <<-SHELL
+    dbadmin.vm.provision "shell", path: "dbadmin-vm.sh"
 
-      sudo apt-get update
-      sudo apt-get -y install mysql-client
-
-    SHELL
+    admin_password = "admin"
+    dbadmin.ssh.extra_args = ["-t", "mysql -h 192.168.56.12 -u admin -p#{admin_password}"]
 
   end
 

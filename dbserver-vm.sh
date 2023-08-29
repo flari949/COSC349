@@ -10,8 +10,8 @@ service mysql start
 
 # Create example database and user
 # echo "CREATE DATABASE IF NOT EXISTS test;" | mysql
-echo "CREATE USER IF NOT EXISTS 'admin'@'%' IDENTIFIED BY 'admin';" | mysql
-echo "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%'" | mysql
+echo "CREATE USER IF NOT EXISTS 'admin'@'192.168.56.13' IDENTIFIED BY 'admin';" | mysql
+echo "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'192.168.56.13'" | mysql
 
 # Allow alternative machines to connect to the database
 sed -i'' -e '/bind-address/s/127.0.0.1/0.0.0.0/' /etc/mysql/mysql.conf.d/mysqld.cnf

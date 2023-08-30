@@ -45,4 +45,4 @@ A user, once their account has been created (with capabilities relative to set p
 
 ```mysql -h 192.168.56.12 -u <username> -p```
 
-Making sure to substitute <username> with a valid username and entering the correct password on prompt, the user will gain access to the MySQL database. 
+Making sure to substitute ```<username>``` with a valid username and entering the correct password on prompt, the user will gain access to the MySQL database. 

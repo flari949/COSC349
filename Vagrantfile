@@ -3,13 +3,6 @@
 
 Vagrant.configure("2") do |config|
 
-
-  # ------------> TODO: connect database server to webserver - login?
-  # Access database via web server? Request access from admin? Web interface?
-  # Public noticeboard? Delegated access to web state
-  # Populate database with example data
-
-
   config.vm.box = "ubuntu/focal64"
 
   # Database server vm

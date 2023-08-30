@@ -30,7 +30,7 @@ With the application running, the administrative and web server virtual machines
 #### Administrative Machine
 Open a command prompt and ssh connect to the virtual machine using:
 
-```vagrant ssh dbserver```
+```vagrant ssh dbadmin```
 
 Doing so will automatically open the database server with administrative privileges.
 #### Web Server
@@ -38,7 +38,7 @@ Open an internet browser and go to:
 
 ```127.0.0.1:8080```
 
-Doing so will prompt the user for a username and password. If verification credentials have not been set by the administrator, default username and password values are 'webuser1'. On credential verification the web server will display the database information. A user, once their account has been given created (with capabilities relative to set privileges), may access the database server through ssh by running the following on the command line:
+Doing so will prompt the user for a username and password. If verification credentials have not been set by the administrator, default username and password values are 'webuser1'. On credential verification the web server will display the database information. A user, once their account has been created (with capabilities relative to set privileges), may access the database server through ssh by running the following on the command line:
 
 ```mysql -h 192.168.56.12 -u <username> -p```
 

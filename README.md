@@ -2,7 +2,7 @@
 University of Otago COSC349 Cloud Architecture
 
 ## Windows Access
-Due to a Vagrant issue, access on a windows machine required the open virtualbox manager application instance
+Due to a Vagrant issue, Vagrant functionality on a windows machine requires the Oracle VM Virtualbox Manager application be open.
 
 ## Project Description
 This application aims to integrate the functionality of three seperate virtual machines in an expandable manner.
@@ -12,9 +12,9 @@ This project will utilise Vagrant as an underlying technology to build and maint
 ## Application Specifications
 
 ## Prerequisites
-Running this application requires the user have recent installations of the following:
+Running this application requires the user have recent installations of the following programs:
 - Vagrant
-- VM VirtualBox Manager
+- Oracle VM VirtualBox Manager
 
 ## Application Running
 Open a command prompt in the desired download location and run:

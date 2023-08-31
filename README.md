@@ -10,7 +10,7 @@ The program will provide a web interface, a backend database and an administrati
 This project will utilise Vagrant as an underlying technology to build and maintain these virtualised environments in a hypervisor-like manner.
 
 ## Application Specifications
-
+The purpose of this application is to create an online web cache of interesting and useful websites. Access to this web server is to be delegated by a third party administrative user, and the data is to be hosted in a seperate standalone database server for the sake of keeping the web server light weight, and ensuring expansion capabilities.
 ## Prerequisites
 Running this application requires the user have recent installations of the following programs:
 - Vagrant

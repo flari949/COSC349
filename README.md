@@ -34,7 +34,7 @@ Open a command prompt and ssh connect to the virtual machine using:
 
 Doing so will automatically open the database server with administrative privileges.
 #### Web Server
-Open an internet browser and go to:
+Open an internet browser and navigate to:
 
 ```127.0.0.1:8080```
 

@@ -4,11 +4,11 @@ $user = $_POST['username'];
 $pass = $_POST['password'];
 
 // Connect to mysql database server with provided login info
-$conn = new mysqli("192.168.56.12", $user, $pass, "mydatabase");
+$conn = new mysqli("192.168.56.11", $user, $pass, "mydatabase");
 
 // If connection failed, send login page error value
 if ($conn->connect_error) {
-    header("Location: login.php?error=connection");
+    header("Location: index.php?error=connection");
     exit;
 }
 

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>MySQL Database</title>
+    <title>Web Database</title>
 </head>
 
 <body>

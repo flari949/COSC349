@@ -1,3 +1,4 @@
+# Install mysql server
 apt-get update
 export MYSQL_PWD='mysqlroot_pwd'
 
@@ -12,9 +13,9 @@ echo "CREATE DATABASE IF NOT EXISTS mydatabase" | mysql
 
 # Create administrative user for admin server VM
 echo "CREATE USER IF NOT EXISTS 'admin'@'192.168.56.13' IDENTIFIED BY 'admin';" | mysql
-echo "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'192.168.56.13'" | mysql
+echo "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'192.168.56.13' WITH GRANT OPTION" | mysql
 
-# Setup account (simulates hosting history)
+# Setup account (simulates database hosting history)
 echo "CREATE USER IF NOT EXISTS 'dbserver'@'localhost' IDENTIFIED BY 'supersecurepassword';" | mysql
 echo "GRANT ALL PRIVILEGES ON *.* TO 'dbserver'@'localhost' WITH GRANT OPTION" | mysql
 export MYSQL_PWD='supersecurepassword'
@@ -24,6 +25,6 @@ cat /vagrant/example-database.sql | mysql -u dbserver mydatabase
 # Use given file to set up example users (simulate admin history)
 cat /vagrant/example-database-access.sql | mysql -u dbserver mydatabase
 
-# Allow alternative machines to connect to the database
+# Allow alternate machines to connect to the database
 sed -i'' -e '/bind-address/s/127.0.0.1/0.0.0.0/' /etc/mysql/mysql.conf.d/mysqld.cnf
 service mysql restart

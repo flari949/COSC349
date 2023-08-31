@@ -13,14 +13,24 @@ if ($conn->connect_error) {
 }
 
 // Create SQL query and get result
-$sql = "SELECT * FROM rocks ORDER BY rating";
+$sql = "SELECT * FROM websites";
 $result = $conn->query($sql);
 
-// Create table to display database information
-echo '<table border="1">';
-echo '<tr><th>-- Rating --</th><th>-- Name --</th><th>-- Location --</th></tr>';
-while ($row = $result->fetch_assoc()) {
-    echo "<tr><td>".$row["rating"]."</td><td>".$row["name"]."</td><td>".$row["found"]."</td></tr>\n";
+// Create session for global variable and save SQL query results
+session_start();
+
+if ($result->num_rows > 0) {
+    $data = array();
+    while ($row = $result->fetch_assoc()) {
+        $data[] = $row;
+    }
+    $_SESSION['dbdata'] = $data;
+} else {
+    $_SESSION['dbdata'] = array();
 }
-echo '</table>';
+
+header("Location: index.php?success=connected");
+
+// Close database connection
+$conn->close();
 ?>

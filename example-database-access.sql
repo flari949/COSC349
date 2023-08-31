@@ -1,6 +1,6 @@
 -- Example webview users
 CREATE USER IF NOT EXISTS 'webuser1'@'%' IDENTIFIED BY 'webuser1';
-GRANT SELECT ON mydatabase.* TO 'webuser1'@'%';
+GRANT SELECT ON mydatabase.websites TO 'webuser1'@'%';
 
 CREATE USER IF NOT EXISTS 'webuser2'@'%' IDENTIFIED BY 'webuser2';
 GRANT SELECT ON mydatabase.* TO 'webuser2'@'%';

@@ -29,7 +29,7 @@
                     }
                     echo '</table>';
                 } else {
-                    echo "No query available!";
+                    echo "No query results available!";
                 }
             }
         ?>

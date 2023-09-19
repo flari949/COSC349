@@ -1,4 +1,4 @@
-# COSC349
+# Vagrant Virtual Machine Engineering Project COSC349
 University of Otago COSC349 Cloud Architecture
 
 ## Windows Access
